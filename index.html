@@ -20,11 +20,6 @@
             font-size: 18px;
             color: #dc3545;
         }
-        .link {
-            display: none;
-            margin-top: 20px;
-            font-size: 16px;
-        }
         button {
             padding: 10px 15px;
             font-size: 16px;
@@ -41,7 +36,7 @@
 </head>
 <body>
     <h1>Aguarde um momento...</h1>
-    <p>Estamos redirecionando você para o conteúdo.</p>
+    <p>Estamos processando seu pedido.</p>
 
     <div class="error-message">
         <h2>Parece que não conseguimos redirecionar você.</h2>
@@ -53,21 +48,13 @@
     </div>
 
     <script>
-        // Função para redirecionar para o Linktree
-        function redirectToLinktree() {
-            window.location.href = "https://linktr.ee/MilaAlvesOfc";
-        }
-
-        // Função para mostrar a mensagem de erro
+        // Função para mostrar a mensagem de erro após 2 segundos
         function showErrorMessage() {
             document.querySelector('.error-message').style.display = 'block';
         }
 
-        // Tenta redirecionar automaticamente após 2 segundos
-        setTimeout(redirectToLinktree, 2000);
-
-        // Se o redirecionamento não ocorrer, mostra a mensagem de erro após 3 segundos
-        setTimeout(showErrorMessage, 3000);
+        // Mostra a mensagem de erro após 2 segundos
+        setTimeout(showErrorMessage, 2000);
 
         // Função para copiar o link
         function copyLink() {
