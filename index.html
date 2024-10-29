@@ -10,11 +10,16 @@
             text-align: center;
             padding: 50px;
         }
-        .instructions {
+        .error-message {
             display: none;
             margin-top: 20px;
             font-size: 16px;
-            color: #333;
+            color: red;
+        }
+        .link {
+            display: none;
+            margin-top: 20px;
+            font-size: 16px;
         }
     </style>
 </head>
@@ -22,25 +27,41 @@
     <h1>Aguarde um momento...</h1>
     <p>Estamos redirecionando você para o conteúdo.</p>
 
-    <div class="instructions">
-        <h2>Não foi redirecionado?</h2>
-        <p>Para abrir no navegador do celular:</p>
-        <ol>
-            <li>Toque nos três pontos no canto superior direito.</li>
-            <li>Selecione <strong>"Abrir no navegador"</strong>.</li>
-        </ol>
+    <div class="error-message">
+        <h2>Oops! Parece que não conseguimos redirecionar você.</h2>
+        <p>Por favor, copie o link abaixo e cole no seu navegador Google:</p>
+        <p id="link-text">https://linktr.ee/MilaAlvesOfc</p>
+        <button onclick="copyLink()">Copiar Link</button>
     </div>
 
     <script>
-        // Tenta redirecionar automaticamente para o Linktree
-        setTimeout(function() {
+        // Função para redirecionar para o Linktree
+        function redirectToLinktree() {
             window.location.href = "https://linktr.ee/MilaAlvesOfc";
-        }, 2000);
+        }
 
-        // Exibe as instruções se o redirecionamento falhar após 3 segundos
-        setTimeout(function() {
-            document.querySelector('.instructions').style.display = 'block';
-        }, 3000);
+        // Função para mostrar a mensagem de erro
+        function showErrorMessage() {
+            document.querySelector('.error-message').style.display = 'block';
+        }
+
+        // Tenta redirecionar automaticamente após 2 segundos
+        setTimeout(redirectToLinktree, 2000);
+
+        // Se o redirecionamento não ocorrer, mostra a mensagem de erro após 3 segundos
+        setTimeout(showErrorMessage, 3000);
+
+        // Função para copiar o link
+        function copyLink() {
+            const linkText = document.getElementById('link-text');
+            const textarea = document.createElement('textarea');
+            textarea.value = linkText.textContent;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            alert('Link copiado! Agora você pode colá-lo no navegador.');
+        }
     </script>
 </body>
 </html>
