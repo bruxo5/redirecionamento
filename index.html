@@ -9,17 +9,33 @@
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 50px;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #343a40;
         }
         .error-message {
             display: none;
             margin-top: 20px;
-            font-size: 16px;
-            color: red;
+            font-size: 18px;
+            color: #dc3545;
         }
         .link {
             display: none;
             margin-top: 20px;
             font-size: 16px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -28,8 +44,10 @@
     <p>Estamos redirecionando você para o conteúdo.</p>
 
     <div class="error-message">
-        <h2>Oops! Parece que não conseguimos redirecionar você.</h2>
-        <p>Por favor, copie o link abaixo e cole no seu navegador Google:</p>
+        <h2>Parece que não conseguimos redirecionar você.</h2>
+        <p>Para acessar o link, siga as instruções abaixo:</p>
+        <p>1. Toque e segure o link abaixo até que a opção de copiar apareça.</p>
+        <p>2. Cole o link no navegador de sua escolha.</p>
         <p id="link-text">https://linktr.ee/MilaAlvesOfc</p>
         <button onclick="copyLink()">Copiar Link</button>
     </div>
