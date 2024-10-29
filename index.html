@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecionando...</title>
+    <title>Aguarde...</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -53,20 +53,8 @@
             document.querySelector('.error-message').style.display = 'block';
         }
 
-        // Mostra a mensagem de erro após 2 segundos
+        // Mostra a mensagem de erro imediatamente após 2 segundos
         setTimeout(showErrorMessage, 2000);
-
-        // Função para copiar o link
-        function copyLink() {
-            const linkText = document.getElementById('link-text');
-            const textarea = document.createElement('textarea');
-            textarea.value = linkText.textContent;
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-            alert('Link copiado! Agora você pode colá-lo no navegador.');
-        }
     </script>
 </body>
 </html>
