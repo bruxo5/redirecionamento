@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -48,20 +48,27 @@
     <h1>Parece que não conseguimos redirecionar você.</h1>
     <div class="error-message">
         <p>Para acessar o link, siga as instruções abaixo:</p>
-        <p>1. Toque e segure o link abaixo até que a opção de copiar apareça.</p>
+        <p>1. Clique no botão abaixo para copiar o link.</p>
         <p>2. Cole o link no navegador de sua escolha.</p>
         <p id="link-text">https://linktr.ee/MilaAlvesOfc</p>
         <button onclick="copyLink()">Copiar Link</button>
     </div>
 
     <script>
-        // Função para mostrar a mensagem de erro após 2 segundos
-        function showErrorMessage() {
-            document.querySelector('.error-message').style.display = 'block';
+        // Função para copiar o link e mostrar a mensagem de erro após 2 segundos
+        function copyLink() {
+            const link = document.getElementById('link-text').innerText;
+            navigator.clipboard.writeText(link).then(() => {
+                alert('Link copiado com sucesso!');
+            }).catch(err => {
+                console.error('Erro ao copiar: ', err);
+            });
         }
 
         // Mostra a mensagem de erro imediatamente após 2 segundos
-        setTimeout(showErrorMessage, 2000);
+        setTimeout(() => {
+            document.querySelector('.error-message').style.display = 'block';
+        }, 2000);
     </script>
 </body>
 </html>
